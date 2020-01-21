@@ -42,19 +42,23 @@ function checkForMatch () {
 //flip card function
 function flipCard () {
 	let cardId = this.getAttribute('data-id');
+	let card = cards[cardId];
 	cardsInPlay.push(cards[cardId].rank);
 	console.log("User flipped " + cards[cardId].rank + ".");
 	console.log("User flipped " + cards[cardId].cardImage + ".");
 	this.setAttribute('src', cards[cardId].cardImage);
 	console.log("User flipped " + cards[cardId].suit + ".")
-    checkForMatch();
+    if (cardsInPlay.length === 2) {
+    	checkForMatch();
+       }
+    }
 
 	//variable for first card the user picks
 	//let cardOne = cards[0];
 	//add first card picked to cards in play array
 	//cardsInPlay.push(cardOne);
 
-}
+
 
 //create gameboard
 function createBoard () {
